@@ -1,0 +1,171 @@
+
+.mediaViewInfo {
+	--web-view-name: Main;
+	--web-view-id: Main;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Main;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+
+#Main {
+	position: absolute;
+	width: 1366px;
+	height: 768px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: Main;
+	--web-view-id: Main;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#myCanvas{
+	position: absolute;
+  	margin-left: auto;
+  	margin-right: auto;
+	width: 1200px;
+	height: 630px;
+	z-index: 1;
+	object-fit: cover;
+}
+
+#Background {
+	position: fixed;
+	height: 100%;
+	right: 0px;
+	bottom: 0px;
+}
+#Aesthetic_Dezaina_bg {
+	left: 151.236px;
+	top: 20.713px;
+	position: absolute;
+	overflow: visible;
+	width: 433px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 47px;
+	color: rgba(172,235,247,1);
+}
+#Border_Creator_bh {
+	left: 246.856px;
+	top: 65.596px;
+	position: absolute;
+	overflow: visible;
+	width: 250px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 33px;
+	color: rgba(167,232,219,1);
+}
+
+#Border_Button {
+	position: absolute;
+	width: 290.763px;
+	height: 62.446px;
+	left: 226.366px;
+	top: 178.778px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	cursor: pointer;
+	z-index: 2;
+}
+
+#Pictures_Button {
+	position: absolute;
+	width: 290.763px;
+	height: 62.446px;
+	left: 226.366px;
+	top: 267.568px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	cursor: pointer;
+	z-index: 2;
+}
+
+#Generate_Button {
+	position: absolute;
+	width: 290.763px;
+	height: 62.446px;
+	left: 226.366px;
+	top: 409.047px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.button {
+	background-color: rgba(15,46,96,1);
+	border: none;
+	position: absolute;
+	overflow: visible;
+	width: 290.763px;
+	height: 62.446px;
+	left: 0px;
+	top: 0px;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 33px;
+	color: rgba(255,255,255,1);
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	border-radius: 12px;
+	transition-duration: 0.4s;
+}
+
+.button:hover {
+	background-color: rgb(24, 71, 148);
+	color: rgba(255,255,255,1);
+}
+
+.genbutton {
+	background-color: rgba(176,235,245,1);
+	border: none;
+	position: absolute;
+	overflow: visible;
+	width: 290.763px;
+	height: 62.446px;
+	left: 0px;
+	top: 0px;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 33px;
+	color: rgba(255,255,255,1);
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	border-radius: 12px;
+	transition-duration: 0.4s;
+}
+
+.genbutton:hover {
+	background-color: rgb(24, 71, 148);
+	color: rgba(255,255,255,1);
+}
+

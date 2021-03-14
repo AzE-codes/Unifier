@@ -1,0 +1,159 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>Border Creator</title>	
+</head>
+<body>
+	
+	<div class="Main">
+
+		<form action="index.html">
+			
+			
+			<canvas class="result" id="myCanvas" style="display: none;"></canvas>
+	
+
+
+
+			<div id="Background">
+				<img id="Background" src="img/Background.jpg"></svg>
+			</div>
+			
+			<div id="Aesthetic_Dezaina_bg">
+				<span>Aesthetic Dezaina</span>
+			</div>
+
+			<div id="Border_Creator_bh">
+				<span>U N I F I E R</span>
+			</div>
+			
+			<div id="Border_Button">
+
+				<input class="joint" type="file" id="border" accept="image/*" style="display: none"/>
+				<img style="display:none" id="iBorder" class="preview" src="#"/>
+				
+				<!-- Use id to avoid similar name -->
+				<!-- You can have elements(ie. div, input, button, etc) with the same class name as many as you want, but you can only have one element for specific id name -->
+				<button type="button" id="border_button" class="button">Select Logo</button>
+					
+			</div>
+			
+			<div id="Pictures_Button">
+
+				<input class="joint" type='file' id="pictures" multiple accept="image/*" style="display: none"/>
+				<img style="display:none" id="iPicture" class="preview" src="#"/>
+			
+				<button type="button" id="picture_button" class="button">Select Picture</button>
+				
+			</div>
+			
+			<div id="Generate_Button">
+								
+				<button type="button" onclick="Merge()" class="genbutton">Generate</button>
+								
+			</div>
+		</form>
+		
+	</div>
+</body>
+
+<!-- JQuery import only once -->
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>	
+
+<script>
+	
+	function readURL(input) {
+		
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function (e) {
+				console.log('uploaded')
+				$(input).next('.preview').attr('src', e.target.result);
+			}
+
+			reader.readAsDataURL(input.files[0]);
+		}
+     
+	}
+
+	$(".joint").change(function(){
+		readURL(this);
+	});
+
+	$(document).ready(function(){
+	// This is to prevent any jQuery code from running before the document is finished loading (is ready)
+
+		// all jQuery methods go here...
+
+		$("#border_button").on("click", function() {
+			$("#border").trigger("click");
+		});
+
+		$("#picture_button").on("click", function() {
+			$("#pictures").trigger("click");
+		});	
+
+	});	
+
+	function Merge() {
+
+		var border = document.getElementById('iBorder'); 
+		var picture = document.getElementById('iPicture'); 
+
+		const width = Math.min(1200, picture.width);
+		const modifier = width / picture.width;
+
+		var pw = width;
+		var ph = picture.height * modifier;
+
+		var by = ph - 200;
+
+		let output = document.querySelector(".result");
+		var context = output.getContext("2d");
+	
+		output.width = 1200;
+		output.height = ph;
+
+		context.globalAlpha = 1;
+		context.drawImage((picture), 0, 0, pw, ph);
+
+		context.globalAlpha = 0.8;
+		context.drawImage(border, 1000, by, 150, 150);
+			
+			var canvas = document.getElementById("myCanvas");
+			image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+			var link = document.createElement('a');
+			link.download = "unified.png";
+			link.href = image;
+			link.click();	
+	}
+	
+
+
+
+
+
+
+
+				
+			
+
+</script>			
+
+</html>
+
+
