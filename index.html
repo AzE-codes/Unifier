@@ -100,36 +100,47 @@
 		});	
 
 		function Merge() {
+			
 
 			var border = document.getElementById('iBorder'); 
-			var picture = document.getElementById('iPicture'); 
-
-			const width = Math.min(1200, picture.width);
-			const modifier = width / picture.width;
-
-			var pw = width;
-			var ph = picture.height * modifier;
-
-			var by = ph - 200;
+			var picture = document.getElementById('iPicture');
 
 			let output = document.querySelector(".result");
 			var context = output.getContext("2d");
-		
-			output.width = 1200;
-			output.height = ph;
 
 			context.globalAlpha = 1;
-			context.drawImage((picture), 0, 0, pw, ph);
 
-			context.globalAlpha = 0.8;
-			context.drawImage(border, 1000, by, 150, 150);
-				
-				var canvas = document.getElementById("myCanvas");
-				image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
-				var link = document.createElement('a');
-				link.download = "unified.png";
-				link.href = image;
-				link.click();	
+			// get base image size
+			const baseImageWidth = picture.width
+			const baseImageHeight = picture.height
+
+			// set logo size
+			const logoWidth = 150
+			const logoHeight = 150
+		
+			// set output image size to original size
+			output.width = baseImageWidth
+			output.height = baseImageHeight
+
+			// draw the base image
+			context.drawImage(picture, 0, 0, baseImageWidth, baseImageHeight);
+
+			// get 5% of the total width of the base image as padding value
+			const baseImagePadding = baseImageWidth * 0.05
+
+			// set logo position
+			const logoPositionX = (baseImageWidth - logoWidth) - baseImagePadding
+			const logoPositionY = (baseImageHeight - logoHeight) - baseImagePadding
+
+			// draw the logo
+			context.drawImage(border, logoPositionX, logoPositionY, logoWidth, logoHeight);
+			
+			var canvas = document.getElementById("myCanvas");
+			image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+			var link = document.createElement('a');
+			link.download = "unified.png";
+			link.href = image;
+			link.click();	
 		}
 	</script>		
 
