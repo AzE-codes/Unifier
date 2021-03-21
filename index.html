@@ -114,8 +114,16 @@
 			const baseImageWidth = picture.width
 			const baseImageHeight = picture.height
 
+			let longerWidth = 0
+
+			if (baseImageWidth > baseImageHeight) {
+				longerWidth = baseImageWidth
+			} else {
+				longerWidth = baseImageHeight
+			}
+
 			// set logo size
-			const logoWidth = baseImageWidth * 0.1
+			const logoWidth = longerWidth * 0.1
 			const logoHeight = logoWidth
 		
 			// set output image size to original size
